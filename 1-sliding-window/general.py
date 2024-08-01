@@ -1,15 +1,8 @@
 '''
-Given an array, find the average of all contiguous subarrays of size 'K' in it.
+General:
+- Array or linked list
+- When we need to find subarrays according to a given set of conditions
 '''
-
-def brute_force(K, arr):
-    res = []
-    for i in range(len(arr)-K+1):
-        sum = 0.0
-        for j in range(i, i+K):
-            sum += arr[j]
-        res.append(sum / K)
-    return res
 
 def sliding_window(K, arr):
     res = []
@@ -24,7 +17,6 @@ def sliding_window(K, arr):
     return res
 
 def main():
-    print(brute_force(5, [1,2,3,4,5,6,7,8,9]))
     print(sliding_window(5, [1,2,3,4,5,6,7,8,9]))
 
 main()
