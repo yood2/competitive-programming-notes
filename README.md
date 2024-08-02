@@ -1,2 +1,6 @@
 # Data Structures and Algorithms
-Notes for DSAs
+- Grokking Patterns
+- Grind 75
+
+## Reference
+https://www.techinterviewhandbook.org/grind75
