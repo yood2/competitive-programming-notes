@@ -34,7 +34,6 @@ def calculate(num):
         num //= 10
     return sum
 
-
 def main():
     print(find_happy_number(23))
     print(find_happy_number(12))
