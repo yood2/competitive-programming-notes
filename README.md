@@ -1,7 +1,8 @@
 # Data Structures and Algorithms
-- Patterns
-    - Concise notes in interactive Jupyter Notebook
-- Grind 75 in 4 weeks
+- Patterns explained in concise notes using Jupyter Notebook
+- Grind 75 Leetcode
+- CSES Problem Set
 
 ## Reference
-https://www.techinterviewhandbook.org/grind75
+[CSES](https://cses.fi/)
+[Grind75](https://www.techinterviewhandbook.org/grind75)
