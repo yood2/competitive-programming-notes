@@ -1,7 +1,8 @@
 # Data Structures and Algorithms
-- Patterns explained in concise notes using Jupyter Notebook
+- Patterns explained using Jupyter Notebook
 - CSES Problem Set
 
 ## Reference
-[CSES](https://cses.fi/)
-[Neetcode 150](https://neetcode.io/roadmap)
+[CSES](https://cses.fi/) \
+[Neetcode 150](https://neetcode.io/roadmap) \
+[Sean Prashad](https://seanprashad.com/leetcode-patterns/)
