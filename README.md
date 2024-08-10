@@ -1,5 +1,6 @@
 # Data Structures and Algorithms
-- Patterns explained using Jupyter Notebook
+- Pattern summaries in Jupyter Notebook
+- Data Structure summaries in Jupyter Notebook
 - CSES Problem Set
 
 ## Reference

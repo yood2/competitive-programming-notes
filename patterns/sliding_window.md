@@ -1,12 +1,11 @@
 # Sliding Window
-**Summary:** Sliding Window can be used for problems in which a fixed or variable size window is moved through a data structure (like an array or string). 
-
-**Key Characteristics**
+## Summary
+Useful for problems where we are asking to find or calculate something among all subarrays (or sublists) of a given size. Basic idea is that we can add one and remove one element at a time instead of recalculating a whole subarray (this is more efficient).
+## Key Characteristics
 - Generally require finding subarray/substrings which satisfy some specific condition.
 - Size of subarry or substring `k` will be given in some problems.
 - Problems can easibly be solved in $O(n^2)$ time using nested loops but sliding window makes these into $O(n)$ time.
-
-#### General Format
+## General Format
 ```python
 def sliding_window(K, arr):
     res = []

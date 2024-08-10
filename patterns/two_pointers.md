@@ -1,13 +1,11 @@
 # Two Pointers
-**Summary:** Useful when we need to find a set of elements in a sorted array/list that fulfill a certain constraint. Set of elements could be a pair, triplet, or even subarray.
-
-**Key Characteristics**
+## Summary
+Useful when we need to find a set of elements in a sorted array/list that fulfill a certain constraint. Set of elements could be a pair, triplet, or even subarray.
+## Key Characteristics
 - Linked list or array
 - Sorted
 - Complexity of $O(n)$ where $n$ is number of elements in the array.
-
-
-#### General Format
+## General Format
 ```python
 def two_pointer(arr, target):
     start = 0
@@ -21,11 +19,9 @@ def two_pointer(arr, target):
         else:
             end += 1
 ```
-
-#### Triplet Questions
+## Triplet Questions
 Sometimes you will be asked to find triplets that meet a certain condition. You can use the principal of two pointer (using two pointers to iterate through different combinations of an array) while using an additional pointer to check the elements in between.
 ```python
-
 def searchTriplets(self, arr):
     triplets = []
     arr = sorted(arr) # sort array if not yet sorted
