@@ -19,6 +19,21 @@ def two_pointer(arr, target):
         else:
             end += 1
 ```
+## Shortest Distance Questions
+Sometimes you will be asked to find the shortest distance between two elements in an array. You can use the two pointer algorithm to find the shortest distance.
+```python
+def shortest_dist(arr, target1, target2):
+    shortest = len(arr)
+    index1 = -1
+    index2 = -1
+    for i, elem in enumerate(arr):
+        if arr[i] == target1:
+            index1 = i
+        if arr[i] == target2:
+            index2 = i
+        if index1 != -1 and index2 != -2:
+            shortest = min(shortest, abs(index2 - index1))
+```
 ## Triplet Questions
 Sometimes you will be asked to find triplets that meet a certain condition. You can use the principal of two pointer (using two pointers to iterate through different combinations of an array) while using an additional pointer to check the elements in between.
 ```python
@@ -29,7 +44,7 @@ def searchTriplets(self, arr):
     for i in range(len(arr) - 2): # i is like the starting point of our two pointer algorithm
         if i != 0 and arr[i] == arr[i-1]:
         continue
-        
+
         left = i + 1
         right = len(arr) - 1
 
