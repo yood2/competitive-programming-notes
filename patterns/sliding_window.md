@@ -19,3 +19,29 @@ def sliding_window(K, arr):
             windowStart += 1
     return res
 ```
+## Sliding Window + Hash
+We can use this technique with hash maps to solve problems where we need to find a subarray with a specific sum or count of elements.
+```python
+def sliding_window_hash(K, arr):
+    res = []
+    windowStart = 0
+    windowSum = 0.0
+    freq = {}
+
+    for windowEnd in range(len(arr)):
+        if arr[windowEnd] not in freq:
+            freq[arr[windowEnd]] = 0
+        freq[arr[windowEnd]] += 1
+        windowSum += arr[windowEnd]
+
+        if windowEnd >= K-1:
+            res.append(windowSum/K)
+            windowSum -= arr[windowStart]
+            freq[arr[windowStart]] -= 1
+
+            if freq[arr[windowStart]] == 0:
+                del freq[arr[windowStart]]
+            windowStart += 1
+
+    return res
+```
