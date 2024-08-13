@@ -1,5 +1,6 @@
 # Fast & Slow Pointers
-**Summary:** Pointer algorithm that uses two pointers whicm move through the array (or linked list) at different speeds. Useful for cyclic Linked Lists or arrays.
+## Summary
+Pointer algorithm that uses two pointers whicm move through the array (or linked list) at different speeds. Useful for cyclic Linked Lists or arrays.
 ## Key Characteristics
 - One pointer goes .next while second pointer goes .next.next
 - If there is a cycle the fast pointer will catch up to the slow pointer
@@ -34,7 +35,7 @@ def isHappy(self, n: int) -> bool:
             total += (n % 10) ** 2
             n = n // 10
         return total
-    
+
     fast = n
     slow = n
 
