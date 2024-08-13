@@ -24,8 +24,8 @@ def cyclic_sort(arr):
             i += 1
     return arr
 ```
-## Finding Missing Number
-The idea is that we sort first, than we iterate through and check that every number is in the correct place.
+## Finding Missing or Duplicate Number
+The idea is that we sort first, than we iterate through and check that every number is in the correct place. If they ask for all the missing or all the duplicates, just put all the numbers in a list before returning.
 ```python
 def missing_num(nums):
     i, n = 0, len(nums)
