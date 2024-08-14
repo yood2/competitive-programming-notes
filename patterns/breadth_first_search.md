@@ -9,5 +9,17 @@ For BFS, we will use a queue to keep track of all the nodes of a level before we
 - Space complexity is O(V) where V is the number of vertices.
 ## General Format
 ```python
+def bfs(head):
+    queue = deque(head)
+    visited = set(head)
 
+    while queue:
+        node = queue.popleft()
+        print(node.value, end=" ")
+        if node.left not in visited:
+            visited.add(node.left)
+            queue.append(node.left)
+        if node.right not in visited:
+            visited.add(node.right)
+            queue.append(node.right)
 ```
