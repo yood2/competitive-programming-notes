@@ -1,7 +1,7 @@
-# Data Structures and Algorithms
-- Pattern summaries in markdown
-- Data Structure summaries in markdown
-- CSES Problem Set
+# Competitive Programming Notes
+- Pattern summaries in markdown (in Python)
+- Data Structure summaries in markdown (in Python)
+- CSES Problem Set (in C++)
 
 ## Reference
 [CSES](https://cses.fi/) \
