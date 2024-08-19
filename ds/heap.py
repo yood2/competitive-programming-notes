@@ -15,7 +15,6 @@ class MaxHeap:
         self.max_size = max_size
         self.arr = [None] * max_size
         self.heap_size = 0
-    
     '''
     HEAPIFY
     Process to rearrange elements to maintain property of heap.
@@ -88,5 +87,3 @@ class MaxHeap:
     '''
     def GetMax(self):
         return self.arr[0]
-
-    
