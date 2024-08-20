@@ -5,89 +5,79 @@ PROPERTIES
 - Parent-Child Relationship: Parent at index 'i', left child at index '2i+1', right child at index '2i+2'.
 - Efficient Insertion and Removal: Insertion and removal are efficient. New elements inserted at next available in bottom right, heap property 'heapifies up'.
 - Efficient access to extreme elements: Min or max always at root with constant-time access.
+
+HEAPIFY UP
+Process to rearrange elements to maintain property of heap.
+Start from element at index i. Compare to parent. If larger/smaller,
+swap. Continue until at index 0 or until parent is no longer
+larger/smaller.
+
+INSERTION
+Insert new element into bottom rightmost spot (end of array).
+Perform heapify up to fix heap property.
+Also $O(log n)$.
+
+HEAPIFY DOWN
+Process to rearrange elements to maintain property of heap.
+Start from root. Compare root to left and right children.
+If either child is larger, swap root with child.
+Recursively call for the index of the child you swapped with.
+$O(log n)$ to balance the tree.
+
+POP
+Deleting root element is $O(1)$.
+Put rightmost leaf node at the root temporarily.
+Call heapify down to fix heap property.
+Total time ios $O(log n)$.
+
+PEEK
+Just get the first element. $O(1)$ time.
 '''
-class MaxHeap:
-    arr = []
-    max_size = 0
-    heap_size = 0
+class BinaryHeap:
+    def __init__(self):
+        self._heap = []
 
-    def __init__(self, max_size):
-        self.max_size = max_size
-        self.arr = [None] * max_size
-        self.heap_size = 0
-    '''
-    HEAPIFY
-    Process to rearrange elements to maintain property of heap.
-    Start from root. Compare root to left and right children.
-    If either child is larger, swap root with child.
-    Recursively call for the index of the child you swapped with.
-    $O(log n)$ to balance the tree.
-    '''
-    def MaxHeapify(self, i):
-        l = (2 * i + 1)
-        r = (2 * i + 2)
-        largest = i
-        if l < self.heap_size and self.arr[l] > self.arr[i]:
-            largest = l
-        if r < self.heap_size and self.arr[r] > self.arr[largest]:
-            largest = r
-        if largest != i:
-            temp = self.arr[i]
-            self.arr[i] = self.arr[largest]
-            self.arr[largest] = temp
-            self.MaxHeapify(largest)
-    '''
-    INSERTION
-    Insert new element into bottom rightmost spot (end of array).
-    Perform heapify to fix heap property.
-    Also $O(log n)$.
-    '''
-    def Insert(self, x):
-        if self.heap_size == self.max_size:
-            # Heap is full
-            return
-        
-        self.heap_size += 1
-        i = self.heap_size - 1
-        self.arr[i] = x
+    def _heapify_up(self, i):
+        while (i-1)//2 >= 0:
+            parent = (i-1) // 2
+            if self._heap[i] < self._heap[parent]:
+                self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]
+            i = parent
 
-        # while not at root and parent is less than curr val
-        while i != 0 and self.arr[self.parent(i)] < self.arr[i]:
-            # swap parent and curr val
-            temp = self.arr[i]
-            self.arr[i] = self.arr[self.parent(i)]
-            self.arr[self.parent(i)] = temp
-            i = self.parent(i)
-    
-    def parent(i):
-        return (i-1) // 2
-    '''
-    DELETION
-    Deleting root element is $O(1)$.
-    Put rightmost leaf node at the root temporarily.
-    Call heapify to fix heap property.
-    Total time ios $O(log n)$.
-    '''
-    def RemoveMax(self):
-        if self.heap_size <= 0:
-            return None
-        if self.heap_size == 1:
-            self.heap_size -= 1
-            return self.arr[0]
-        
-        root = self.arr[0]
-        self.arr[0] = self.arr[self.heap_size - 1]
-        self.heap_size -= 1
-        self.MaxHeapify(0)
+    def insert(self, item):
+        self._heap.append(item)
+        self._heapify_up(len(self._heap) - 1)
 
-        return root
-    '''
-    GETMAX/GETMIN
-    Just get the first element. $O(1)$ time.
-    '''
-    def GetMax(self):
-        return self.arr[0]
+    def _heapify_down(self, i):
+        while 2 * i + 1 < len(self._heap):
+            smaller_child = self._get_min_child(i)
+            if self._heap[i] > self._heap[smaller_child]:
+                self._heap[i], self._heap[smaller_child] = (
+                    self._heap[smaller_child],
+                    self._heap[i],
+                )
+            else:
+                break
+            i = smaller_child
+            
+    def _get_min_child(self, i):
+        # only left child exists
+        if 2 * i + 2 > len(self._heap) - 1:
+            return 2 * i + 1
+        # left child smallest
+        if self._heap[2 * i + 1] < self._heap[2 * i + 2]:
+            return 2 * i + 1
+        # right child smallest
+        return 2 * i + 2
 
+    def pop(self):
+        self._heap[0], self._heap[-1] = self._heap[-1], self._heap[0]
+        result = self._heap.pop()
+        self._heapify_down(0)
+        return result
+
+    def peek(self):
+        return self._heap[0]
 '''
 HEAPQ
 Collections module provides an implementation of the heap queue algorithm.
