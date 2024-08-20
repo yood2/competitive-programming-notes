@@ -87,3 +87,14 @@ class MaxHeap:
     '''
     def GetMax(self):
         return self.arr[0]
+
+'''
+HEAPQ
+Collections module provides an implementation of the heap queue algorithm.
+'''
+from collections import heapq
+
+heap = []
+x = 1
+heapq.heappush(heap, x)
+heapq.heappop(heap)
